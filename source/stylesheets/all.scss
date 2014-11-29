@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+@import "bourbon/bourbon"; // or "bourbon" when in Rails
+@import "grid-settings";
+@import "neat/neat"; // or "neat" when in Rails
+
+$logo_font_size: 5em;
+
+.logo{
+  font-size: $logo_font_size;
+}
+
+.headline{
+  font-family: beast_of_avalonregular;
+  font-size: 1em;
+}
+.tagline{
+  font-family: sans-serif;
+  font-size: (2em/5);
+}
+
+body {
+  background: #d4d4d4 url("../images/background.png");
+  text-align: center;
+  font-family: sans-serif;
+}
