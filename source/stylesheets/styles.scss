@@ -2,11 +2,17 @@
 @import "reset";
 @import "bourbon";
 @import "fonts";
+@import "nav";
 
 $logo_font_size: 5em;
 
+body{
+  @include outer-container;
+}
+
 .logo{
   font-size: $logo_font_size;
+  @include row;
 }
 
 .headline{
@@ -14,7 +20,7 @@ $logo_font_size: 5em;
   font-size: 1em;
   @include span-columns(12);
   text-align: left;
-  padding-top: 0.2em;
+  padding-top: 0.4em;
   padding-left: 0.2em;
 }
 .tagline{
@@ -22,18 +28,12 @@ $logo_font_size: 5em;
   font-size: (2em/5);
   padding-right: 0.2em;
   text-align: right;
-  @include span-columns(3.19);
+  @include span-columns(4.75);
+  @include omega;
 }
 
 body {
   background: #d4d4d4 url("../images/background.png");
   text-align: center;
   font-family: sans-serif;
-}
-
-nav.main{
-  clear:both;
-  li{
-    display: inline;
-  }
 }

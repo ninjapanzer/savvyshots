@@ -1,0 +1,35 @@
+$nav-link-box-shadow:rgba(255,30,30,0.75);
+
+.nav--main{
+  font-size: 2em;
+  margin-top: 1em;
+  padding-top: 0.4em;
+  padding-bottom: 0.75em;
+  clear: both;
+  @include row;
+  background-color: red;
+}
+.nav--ul{
+  @include span-columns(6);
+  float:right;
+  @include omega;
+  li{
+    display: inline;
+  }
+}
+.nav--link a{
+  text-transform: capitalize;
+  background-color: pink;
+  margin:0.2em;
+  padding:0.12em;
+  border-radius: 0.15em;
+  box-shadow: 0em 0.2em 0.2em 0.2em $nav-link-box-shadow;
+
+  &:active, &:visited{
+    background-color: pink;
+  }
+
+  &:hover{
+    background-color: blue;
+  }
+}
