@@ -9,10 +9,10 @@
     /Use title if it's in the page YAML frontmatter
     %title= current_page.data.title || "The Middleman"
 
-    = stylesheet_link_tag "normalize", "fonts", "all"
+    = stylesheet_link_tag "styles"
     = javascript_include_tag  "all"
 
   %body{class:page_classes}
-    = partial "header"
+    %header= partial "header"
     = yield
-    = partial "footer"
+    %footer= partial "footer"
