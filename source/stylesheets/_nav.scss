@@ -2,6 +2,8 @@ $nav-link-box-shadow:rgba(255,30,30,0.75);
 $nav-background-color: red;
 $nav-link-button-color: pink;
 $nav-link-button-hover-color: blue;
+$nav-link-text-color: black;
+$nav-link-text-hover-color: white;
 
 .nav--main{
   font-size: 2em;
@@ -21,6 +23,8 @@ $nav-link-button-hover-color: blue;
   }
 }
 .nav--link a{
+  color: $nav-link-text-color;
+  text-decoration: none;
   text-transform: capitalize;
   background-color: $nav-link-button-color;
   margin:0.2em;
@@ -29,10 +33,12 @@ $nav-link-button-hover-color: blue;
   box-shadow: 0em 0.2em 0.2em 0.2em $nav-link-box-shadow;
 
   &:active, &:visited{
+    color: $nav-link-text-color;
     background-color: $nav-link-button-color;
   }
 
   &:hover{
+    color: $nav-link-text-hover-color;
     background-color: $nav-link-button-hover-color;
   }
 }
