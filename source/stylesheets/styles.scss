@@ -7,6 +7,10 @@
 
 $logo_font_size: 5em;
 
+div, nav{
+  border-radius: 0.1em;
+}
+
 body{
   @include outer-container;
 }

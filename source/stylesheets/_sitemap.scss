@@ -3,6 +3,7 @@ $social-grid-size-container: $grid-columns/3;
 
 .sitemap--main{
   @include row;
+  padding: 1em 0 1em;
   background-color: $sitemap-footer-color;
 }
 
