@@ -1,0 +1,30 @@
+$sitemap-footer-color: blue;
+$social-grid-size-container: $grid-columns/3;
+
+.sitemap--main{
+  @include row;
+  background-color: $sitemap-footer-color;
+}
+
+.sitemap--links1{
+  @include span-columns($grid-columns/3);
+}
+
+.sitemap--links2{
+  @include span-columns($grid-columns/3);
+}
+
+.sitemap--social{
+  @include span-columns($grid-columns/3);
+  @include omega;
+}
+
+.sitemap--twitter{
+  @include span-columns($social-grid-size-container/3 of $social-grid-size-container);
+}
+.sitemap--linkedin{
+  @include span-columns($social-grid-size-container/3 of $social-grid-size-container);
+}
+.sitemap--facebook{
+  @include span-columns($social-grid-size-container/3 of $social-grid-size-container);
+}
