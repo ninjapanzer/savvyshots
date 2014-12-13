@@ -1,0 +1,30 @@
+{
+  "name": "savvyshots",
+  "version": "0.1.0",
+  "homepage": "https://ninjapanzer.github.io/savvyshots",
+  "description": "Home Page of SavvyShots Photography",
+  "main": "index.html",
+  "keywords": [
+    "photography",
+    "site",
+    "middleman"
+  ],
+  "authors": [
+    "Savannah Butler",
+    "Paul Scarrone"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "nivo-slider": "*",
+    "jquery": "~2.1.1",
+    "jquery-migrate": "~1.2.1"
+  }
+}
