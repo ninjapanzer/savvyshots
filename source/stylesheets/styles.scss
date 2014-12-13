@@ -6,6 +6,9 @@
 @import "sitemap";
 
 $logo_font_size: 5em;
+$logo-background-color: white;
+$logo-link-text-color: black;
+$logo-link-text-hover-color: #a6d4ce;
 
 div, nav, section{
   border-radius: 0.1em;
@@ -18,6 +21,19 @@ body{
 .logo{
   font-size: $logo_font_size;
   @include row;
+}
+
+.logo a{
+  color: $logo-link-text-color;
+  text-decoration: none;
+
+  &:active, &:visited{
+    color: $logo-link-text-color;
+  }
+
+  &:hover{
+    color: $logo-link-text-color;
+  }
 }
 
 .headline{
