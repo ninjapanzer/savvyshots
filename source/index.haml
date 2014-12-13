@@ -1,3 +1,17 @@
 ---
 title: Welcome to Middleman
 ---
+.slider-wrapper.theme-nivodefault
+  #slider.nivoSlider
+    %img{:alt => "", "data-thumb" => "http://lorempixel.com/850/480/city/", :src => "http://lorempixel.com/850/480/city/"}/
+    %a{:href => "http://dev7studios.com"}
+      %img{:alt => "", "data-thumb" => "http://lorempixel.com/850/480/technics/", :src => "http://lorempixel.com/850/480/technics/", :title => "This is an example of a caption"}/
+    %img{:alt => "", "data-thumb" => "http://lorempixel.com/850/480/fashion/", "data-transition" => "slideInLeft", :src => "http://lorempixel.com/850/480/fashion/"}/
+    %img{:alt => "", "data-thumb" => "http://lorempixel.com/850/480/nightlife/", :src => "http://lorempixel.com/850/480/nightlife/", :title => "#htmlcaption"}/
+  #htmlcaption.nivo-html-caption
+    %strong This
+    is an example of a
+    %em HTML
+    caption with
+    = succeed "." do
+      %a{:href => "#"} a link
