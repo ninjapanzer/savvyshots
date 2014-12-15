@@ -4,5 +4,8 @@
 //= require nivo-slider/jquery.nivo.slider.pack
 
 $(function(){
- $('#slider').nivoSlider();
+ $('#slider').nivoSlider({
+  effect: 'fade',
+  pauseTime: 4000,
+ });
 })
