@@ -9,6 +9,7 @@ $logo_font_size: 5em;
 $logo-background-color: white;
 $logo-link-text-color: black;
 $logo-link-text-hover-color: #a6d4ce;
+$special-text-color: #a6d4ce;
 
 div, nav, section{
   border-radius: 0.1em;
@@ -58,4 +59,20 @@ body {
   /*background: #d4d4d4 url("../images/background.png");*/
   text-align: center;
   font-family: sans-serif;
+}
+
+.packageTitle{
+  color: $special-text-color;
+  font-size: 1.45em;
+  padding-top: 5px;
+}
+
+.package{
+  padding-bottom: 5px;
+}
+
+p.contactLink{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.2em;
 }
