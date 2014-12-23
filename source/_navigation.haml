@@ -1,4 +1,8 @@
+- home = current_page.path != 'index.html'
 %ul.nav--ul
+  - if home
+    %li.nav--link
+      %a{href:'index.html'} home
   %li.nav--link
     %a{href:'portfolio.html'} Portfolio
   %li.nav--link
