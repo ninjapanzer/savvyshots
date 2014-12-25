@@ -64,6 +64,8 @@ configure :build do
 
   # Minify Javascript on build
   # activate :minify_javascript
+	
+	ignore 'images/webify'
 
   # Enable cache buster
   activate :asset_hash
