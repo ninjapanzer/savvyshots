@@ -15,6 +15,7 @@ $social-grid-size-container: $grid-columns/3;
 }
 
 .sitemap--links2{
+  text-align: center;
   @include span-columns($grid-columns/3);
 }
 
