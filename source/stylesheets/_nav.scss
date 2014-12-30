@@ -44,6 +44,7 @@ $nav-link-text-hover-color: white;
     @include span-columns(1);
     @include omega(1n);
   }
+  margin-right: 0.2em;
   float:right;
   color: $nav-link-text-color;
   text-decoration: none;

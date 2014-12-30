@@ -1,16 +1,17 @@
+$logo_font_size: 5em;
+$logo-background-color: white;
+$logo-link-text-color: black;
+$logo-link-text-hover-color: #a6d4ce;
+$special-text-color: #a6d4ce;
+
 @import "normalize";
 @import "reset";
 @import "bourbon";
 @import "fonts";
 @import "nivo";
 @import "nav";
+@import "pricing";
 @import "sitemap";
-
-$logo_font_size: 5em;
-$logo-background-color: white;
-$logo-link-text-color: black;
-$logo-link-text-hover-color: #a6d4ce;
-$special-text-color: #a6d4ce;
 
 div, nav, section{
   border-radius: 0.1em;
@@ -51,25 +52,22 @@ body{
   font-size: (2em/5);
   padding-right: 0.2em;
   text-align: right;
-  @include span-columns(4.75);
+  width: 410.272px;
+  @include media($single-column) {
+    text-align: left;
+    width: 100%;
+  }
   @include omega;
 }
 
 body {
   background-color: rgb(247, 247, 247);
   /*background: #d4d4d4 url("../images/background.png");*/
-  text-align: center;
   font-family: sans-serif;
 }
 
-.packageTitle{
-  color: $special-text-color;
-  font-size: 1.45em;
-  padding-top: 5px;
-}
-
-.package{
-  padding-bottom: 5px;
+.contact{
+  text-align: center;
 }
 
 p.contactLink{

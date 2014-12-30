@@ -9,6 +9,8 @@ $social-grid-size-container: $grid-columns/3;
 }
 
 .sitemap--links1{
+  text-align: left;
+  margin-left: 1.2em;
   @include span-columns($grid-columns/3);
 }
 
