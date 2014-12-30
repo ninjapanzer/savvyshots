@@ -14,20 +14,36 @@ $nav-link-text-hover-color: white;
   @include row;
   background-color: $nav-background-color;
 }
-.nav--ul{
+.nav--spacer{
   @include span-columns(6);
-  float:right;
+  height: 1px;
+  @include media($tablet) {
+    width: 0px;
+    height: 0px;
+  }
+}
+
+.nav--ul{
+  @include media($tablet) {
+    @include span-columns(4);
+    @include omega(4n);
+  }
+  @include span-columns(6);
   @include omega;
   li{
     display: inline;
   }
 }
+
 .nav--link a{
+  @include media($single-column) {
+    @include span-columns(1);
+    @include omega(1n);
+  }
   color: $nav-link-text-color;
   text-decoration: none;
   text-transform: capitalize;
   background-color: $nav-link-button-color;
-  margin:0.2em;
   padding:0.12em;
   border-radius: 0.15em;
   //box-shadow: 0em 0.2em 0.2em 0.2em $nav-link-box-shadow;

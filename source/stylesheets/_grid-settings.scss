@@ -6,6 +6,9 @@ $gutter: 30px;
 $grid-columns: 12;
 $max-width: em(1088);
 
+$mobile-break: 768px;
+$single-column-break: 550px;
+
 // Define your breakpoints
-$tablet: new-breakpoint(max-width 768px 8);
-$mobile: new-breakpoint(max-width 480px 4);
+$tablet: new-breakpoint(max-width $mobile-break 4);
+$single-column: new-breakpoint(max-width $single-column-break 1);
