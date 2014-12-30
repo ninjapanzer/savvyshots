@@ -14,24 +14,28 @@ $nav-link-text-hover-color: white;
   @include row;
   background-color: $nav-background-color;
 }
-.nav--spacer{
-  @include span-columns(6);
-  height: 1px;
-  @include media($tablet) {
-    width: 0px;
-    height: 0px;
-  }
-}
 
 .nav--ul{
-  @include media($tablet) {
-    @include span-columns(4);
-    @include omega(4n);
-  }
-  @include span-columns(6);
+  @include span-columns(12);
+  @include media($tablet) { display: block;}
+  @include media($single-column) { display: none;}
   @include omega;
   li{
     display: inline;
+  }
+}
+
+.nav--ul-mobile{
+  display: none;
+  @include media($tablet) {
+    @include span-columns(4);
+    @include omega(4n);
+    display: none;
+  }
+  @include media($single-column) {
+    display: block;
+    @include span-columns(1);
+    @include omega(1n);
   }
 }
 
@@ -40,6 +44,7 @@ $nav-link-text-hover-color: white;
     @include span-columns(1);
     @include omega(1n);
   }
+  float:right;
   color: $nav-link-text-color;
   text-decoration: none;
   text-transform: capitalize;
