@@ -68,6 +68,9 @@ body {
 
 .contact{
   text-align: center;
+  @include media($single-column) {
+    text-align: initial;
+  }
 }
 
 p.contactLink{

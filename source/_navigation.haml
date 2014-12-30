@@ -1,8 +1,5 @@
 - home = current_page.path != 'index.html'
 %ul.nav--ul
-  - if home
-    %li.nav--link
-      %a{href:'index.html'} home
   %li.nav--link
     %a{href:'contact.html'} Contact
   %li.nav--link
@@ -11,7 +8,13 @@
   //  %a{href:'about.html'} About
   %li.nav--link
     %a{href:'portfolio.html'} Portfolio
+  - if home
+    %li.nav--link
+      %a{href:'index.html'} home
 %ul.nav--ul-mobile
+  - if home
+    %li.nav--link
+      %a{href:'index.html'} home
   %li.nav--link
     %a{href:'portfolio.html'} Portfolio
   //%li.nav--link
