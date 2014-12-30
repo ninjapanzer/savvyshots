@@ -1,7 +1,6 @@
 $sitemap-footer-color: #909090;
 $social-grid-size-container: $grid-columns/3;
 
-
 .sitemap--main{
   @include row;
   padding: 1em 0 1em;
@@ -12,24 +11,30 @@ $social-grid-size-container: $grid-columns/3;
   text-align: left;
   margin-left: 1.2em;
   @include span-columns($grid-columns/3);
+  @include media($single-column){ @include span-columns(1) }
 }
 
 .sitemap--links2{
   text-align: center;
   @include span-columns($grid-columns/3);
+  @include media($single-column){ @include span-columns(1) }
 }
 
 .sitemap--social{
   @include span-columns($grid-columns/3);
+  @include media($single-column){ @include span-columns(1) }
   @include omega;
 }
 
 .sitemap--twitter{
   @include span-columns($social-grid-size-container/3 of $social-grid-size-container);
+  @include media($single-column){ @include span-columns(1) }
 }
 .sitemap--linkedin{
   @include span-columns($social-grid-size-container/3 of $social-grid-size-container);
+  @include media($single-column){ @include span-columns(1) }
 }
 .sitemap--facebook{
   @include span-columns($social-grid-size-container/3 of $social-grid-size-container);
+  @include media($single-column){ @include span-columns(1) }
 }
