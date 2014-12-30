@@ -8,6 +8,8 @@ gem "middleman", "~>3.3.7"
 gem "middleman-livereload", "~> 3.1.0"
 gem "middleman-deploy"
 
+gem 'middleman-search_engine_sitemap'
+
 gem "neat", "~> 1.7.0"
 
 # For faster file watcher updates on Windows:

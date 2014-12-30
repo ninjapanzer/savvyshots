@@ -49,6 +49,10 @@ sprockets.append_path File.join root, 'bower_components'
 #   end
 # end
 
+set :url_root, 'http://savvyshots.photography'
+
+activate :search_engine_sitemap
+
 set :haml, { :ugly => true, :format => :html5 }
 
 set :css_dir, 'stylesheets'
