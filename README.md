@@ -1,3 +1,5 @@
+### Website for [SavvyShots Photography](http://savvyshots.photography)
+
 ### Setup
 
 - Fork/Clone
