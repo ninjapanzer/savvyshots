@@ -1,5 +1,5 @@
 .about{
-  @include row;
+  @include outer-container();
 }
 
 .about > .about--content{
@@ -15,7 +15,33 @@
 }
 
 .about--content section{
+  @include row;
   font-size: 1.1em;
+}
+
+section > .about--photo{
+  border-top: 1.5px solid $special-text-color;
+  border-bottom: 1.5px solid $special-text-color;
+}
+
+.about--photo{
+  @include row;
+  img {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 50%;
+    max-width: 50%;
+    @include media($single-column) {
+      width: 100%;
+      max-width: 100%;
+    }
+    display: block;
+    margin: auto;
+  }
+  div {
+    display: block;
+    margin: auto;
+  }
 }
 
 .about--content > section > h3{
@@ -34,6 +60,7 @@
 }
 
 .about--content ul{
+  line-height: 1.1;
   list-style-type: none;
   padding-left: 2.5em;
   li {
