@@ -86,7 +86,9 @@ configure :build do
   ignore 'images/webify'
 
   # Enable cache buster
-  activate :asset_hash
+  activate :asset_hash do |opts|
+    opts.exts << '.woff2'
+  end
 
   # Use relative URLs
   activate :relative_assets
