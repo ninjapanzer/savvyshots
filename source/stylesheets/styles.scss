@@ -11,6 +11,7 @@ $special-text-color: #a6d4ce;
 @import "nivo";
 @import "nav";
 @import "pricing";
+@import "about";
 @import "sitemap";
 
 div, nav, section{
@@ -19,6 +20,17 @@ div, nav, section{
 
 body{
   @include outer-container;
+}
+
+a{
+  color: $nav-link-button-hover-color;
+  text-decoration: none;
+  &:active, &:visited{
+    color: $nav-link-button-hover-color;
+  }
+  &:hover{
+    color: $special-text-color;
+  }
 }
 
 .logo{

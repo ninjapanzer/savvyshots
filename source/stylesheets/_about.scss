@@ -1,0 +1,71 @@
+.about{
+  @include outer-container();
+}
+
+.about > .about--content{
+  border: 1.5px solid $special-text-color;
+  background-color: white;
+  @include span-columns(10);
+  @include shift(1);
+  @include omega(1n);
+  @include media($single-column) {
+    @include span-columns(1);
+    @include shift(0);
+  }
+}
+
+.about--content section{
+  @include row;
+  font-size: 1.1em;
+}
+
+section > .about--photo{
+  border-top: 1.5px solid $special-text-color;
+  border-bottom: 1.5px solid $special-text-color;
+}
+
+.about--photo{
+  @include row;
+  img {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 50%;
+    max-width: 50%;
+    @include media($single-column) {
+      width: 100%;
+      max-width: 100%;
+    }
+    display: block;
+    margin: auto;
+  }
+  div {
+    display: block;
+    margin: auto;
+  }
+}
+
+.about--content > section > h3{
+  margin: 0.3em;
+  color: darken($special-text-color, 30%);
+  font-size: 1.45rem;
+  padding-top: 5px;
+}
+
+.about--content > section > p{
+  line-height: 1.1;
+  padding: 0.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 0.2em;
+}
+
+.about--content ul{
+  line-height: 1.1;
+  list-style-type: none;
+  padding-left: 2.5em;
+  li {
+    &::before{
+      content: "- ";
+    }
+  }
+}

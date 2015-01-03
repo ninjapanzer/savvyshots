@@ -2,6 +2,16 @@ $sitemap-footer-color: #909090;
 $social-grid-size-container: $grid-columns/3;
 
 .sitemap--main{
+  a{
+    color: $special-text-color;
+    text-decoration: none;
+  &:active, &:visited{
+    color: $special-text-color;
+  }
+  &:hover{
+    color: black;
+  }
+}
   @include row;
   padding: 1em 0 1em;
   background-color: $sitemap-footer-color;
