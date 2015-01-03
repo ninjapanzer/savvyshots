@@ -22,6 +22,17 @@ body{
   @include outer-container;
 }
 
+a{
+  color: $nav-link-button-hover-color;
+  text-decoration: none;
+  &:active, &:visited{
+    color: $nav-link-button-hover-color;
+  }
+  &:hover{
+    color: $special-text-color;
+  }
+}
+
 .logo{
   font-size: $logo_font_size;
   @include row;
