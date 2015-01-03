@@ -51,7 +51,19 @@ sprockets.append_path File.join root, 'bower_components'
 
 set :url_root, 'http://savvyshots.photography'
 
+activate :asset_host
+set :asset_host, 'http://localhost:4567'
+
 activate :search_engine_sitemap
+
+activate :automatic_clowncar,
+  :sizes => {
+    :small => 200,
+    :medium => 800,
+    :large => 1200
+  },
+  :namespace_directory => %w(photos),
+  :filetypes => [:jpg, :jpeg, :png]
 
 set :haml, { :ugly => true, :format => :html5 }
 
@@ -68,6 +80,8 @@ configure :build do
 
   # Minify Javascript on build
   # activate :minify_javascript
+
+  set :asset_host, 'http://savvyshots.photography'
 
   ignore 'images/webify'
 
