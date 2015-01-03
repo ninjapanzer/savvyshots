@@ -88,6 +88,7 @@ configure :build do
   # Enable cache buster
   activate :asset_hash do |opts|
     opts.exts << '.woff2'
+    opts.ignore << 'beast_of_avalon'
   end
 
   # Use relative URLs
