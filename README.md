@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/ninjapanzer/savvyshots.png?label=ready&title=Ready)](https://waffle.io/ninjapanzer/savvyshots)
 ### Website for [SavvyShots Photography](http://savvyshots.photography)
 
 ### Setup
