@@ -1,4 +1,4 @@
-$logo_font_size: 5em;
+$logo_font_size: 2.5em;
 $logo-background-color: white;
 $logo-link-text-color: #333;
 $logo-link-text-hover-color: #a6d4ce;
@@ -35,6 +35,9 @@ a{
 
 .logo{
   @include row;
+  width: 5.4em;
+  min-width: 5.4em;
+  margin: auto;
   font-size: $logo_font_size;
   line-height: 1;
 }
