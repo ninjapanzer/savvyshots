@@ -19,7 +19,12 @@ div, nav, section{
 }
 
 body{
+  max-width: none;
+}
+
+div.index{
   @include outer-container;
+  max-width: none;
 }
 
 a{
