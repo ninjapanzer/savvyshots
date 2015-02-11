@@ -1,6 +1,6 @@
-$logo_font_size: 5em;
+$logo_font_size: 2.5em;
 $logo-background-color: white;
-$logo-link-text-color: black;
+$logo-link-text-color: #333;
 $logo-link-text-hover-color: #a6d4ce;
 $special-text-color: #a6d4ce;
 
@@ -34,8 +34,12 @@ a{
 }
 
 .logo{
-  font-size: $logo_font_size;
   @include row;
+  width: 5.4em;
+  min-width: 5.4em;
+  margin: auto;
+  font-size: $logo_font_size;
+  line-height: 1;
 }
 
 .logo a{
@@ -54,6 +58,8 @@ a{
 .headline{
   font-family: beast_of_avalonregular;
   font-size: 1em;
+  margin: 0;
+  line-height: 1;
   @include span-columns(12);
   text-align: left;
   padding-top: 0.4em;
@@ -61,10 +67,10 @@ a{
 }
 .tagline{
   font-family: sans-serif;
-  font-size: (2em/5);
+  font-size: 0.3em;
   padding-right: 0.2em;
   text-align: right;
-  width: 410.272px;
+  width: 15.4em;
   @include media($single-column) {
     text-align: left;
     width: 100%;

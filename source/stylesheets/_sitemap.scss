@@ -1,4 +1,4 @@
-$sitemap-footer-color: #909090;
+$sitemap-footer-color: #f7f7f7;
 $social-grid-size-container: $grid-columns/3;
 
 .sitemap--main{
@@ -9,7 +9,7 @@ $social-grid-size-container: $grid-columns/3;
     color: $special-text-color;
   }
   &:hover{
-    color: black;
+    color: #333;
   }
 }
   @include row;
