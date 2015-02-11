@@ -9,7 +9,7 @@ $social-grid-size-container: $grid-columns/3;
     color: $special-text-color;
   }
   &:hover{
-    color: black;
+    color: #333;
   }
 }
   @include row;

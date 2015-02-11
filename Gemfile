@@ -12,6 +12,7 @@ gem "middleman-automatic-clowncar", github: 'ninjapanzer/middleman-automatic-clo
 gem 'middleman-search_engine_sitemap'
 
 gem "neat", "~> 1.7.1"
+gem "bitters", "~> 1.0.0"
 
 # For faster file watcher updates on Windows:
 gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
