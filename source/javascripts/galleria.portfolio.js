@@ -7,18 +7,9 @@ $(function(){
     lightbox: true,
     imageCrop: false,
     carousel: false,
-    show: true,
+    show: false,
     easing: 'galleriaOut',
-    fullscreenDoubleTap: false,
+    fullscreenDoubleTap: true,
   });
   Galleria.run('.galleria');
-  Galleria.ready(function() {
-    var gallery = this;
-    this.bind('thumbnail', function(e) {
-      $(e.thumbTarget).parent().mousedown(function() {
-        $(this).unbind('click');
-        gallery.openLightbox(e.index);
-      });
-    });
-  });
 });
