@@ -27,6 +27,12 @@ div.index{
   max-width: none;
 }
 
+div.portfolio{
+  @include outer-container;
+  max-width: none;
+  margin-left: 0.5em;
+}
+
 a{
   color: $nav-link-button-hover-color;
   text-decoration: none;

@@ -4,12 +4,13 @@ $(function(){
   Galleria.configure({
     transition: 'pulse',
     thumbCrop: 'width',
-    lightbox: true,
+    lightbox: false,
     imageCrop: false,
     carousel: false,
     show: false,
+    variation: 'dark',
     easing: 'galleriaOut',
-    fullscreenDoubleTap: true,
+    fullscreenDoubleTap: false,
   });
   Galleria.run('.galleria');
 });
