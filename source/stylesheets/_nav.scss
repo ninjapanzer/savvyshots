@@ -21,6 +21,8 @@ $nav-link-text-hover-color: white;
 }
 
 .nav--left{
+  @include media($tablet) { display: block;}
+  @include media($single-column) { display: none;}
   font-size: 1.7em;
   margin-top:0.6em;
   @include span-columns(4.5);
@@ -35,6 +37,8 @@ $nav-link-text-hover-color: white;
 }
 
 .nav--right{
+  @include media($tablet) { display: block;}
+  @include media($single-column) { display: none;}
   font-size: 1.7em;
   margin-top:0.6em;
   background-color: $nav-background-color;
@@ -53,8 +57,6 @@ $nav-link-text-hover-color: white;
 
 .nav--ul{
   @include span-columns(12);
-  @include media($tablet) { display: block;}
-  @include media($single-column) { display: none;}
   @include omega;
   li{
     display: inline;

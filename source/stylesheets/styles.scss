@@ -44,8 +44,8 @@ header{
 
 .logo{
   @include span-columns(3);
-  //min-width: 5.4em;
-  margin: auto;
+
+  min-width: 5.4em;
   font-size: $logo_font_size;
   line-height: 1;
 }
@@ -66,23 +66,16 @@ header{
 .headline{
   font-family: beast_of_avalonregular;
   font-size: 1em;
-  margin: 0;
+  margin-bottom: 0;
   line-height: 1;
-  @include span-columns(12);
-  text-align: left;
+  text-align: center;
   padding-top: 0.4em;
   padding-left: 0.2em;
 }
 .tagline{
   font-family: sans-serif;
   font-size: 0.3em;
-  padding-right: 0.2em;
-  text-align: right;
-  width: 15.4em;
-  @include media($single-column) {
-    text-align: left;
-    width: 100%;
-  }
+  text-align: center;
   @include omega;
 }
 
