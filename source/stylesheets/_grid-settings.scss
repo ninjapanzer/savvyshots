@@ -7,7 +7,7 @@ $grid-columns: 12;
 $max-width: em(1088);
 
 $mobile-break: 768px;
-$single-column-break: 550px;
+$single-column-break: $mobile-break;
 
 // Define your breakpoints
 $tablet: new-breakpoint(max-width $mobile-break 4);
