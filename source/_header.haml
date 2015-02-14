@@ -1,5 +1,25 @@
+- home = current_page.path != 'index.html'
+.nav--left
+  %ul.nav--ul
+    %li.nav--link
+      %a{href:'portfolio.html'} Portfolio
+    %li.nav--link
+      %a{href:'pricing.html'} Pricing
+    - if home
+      %li.nav--link
+        %a{href:'index.html'}
+          =image_tag('house-309113.svg', {class:'home-button'})
+
 .logo
   %a{:href => "index.html"}
     %h1.headline Savvy Shots
     .tagline Photography
+
+.nav--right
+  %ul.nav--ul
+    %li.nav--link
+      %a{href:'contact.html'} Contact
+    %li.nav--link
+      %a{href:'about.html'} About
+
 %nav.nav--main= partial "navigation"
