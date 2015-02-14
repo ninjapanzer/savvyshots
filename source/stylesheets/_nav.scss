@@ -16,6 +16,41 @@ $nav-link-text-hover-color: white;
   background-color: $nav-background-color;
 }
 
+.home-button{
+  width: 1em;
+}
+
+.nav--left{
+  font-size: 1.7em;
+  margin-top:0.6em;
+  @include span-columns(4.5);
+  li.nav--link a{
+    padding: 0.2em;
+    color: lighten($nav-link-text-color, 15%);
+    background-color: $nav-background-color;
+    &:hover{
+      color: $nav-link-button-color;
+    }
+  }
+}
+
+.nav--right{
+  font-size: 1.7em;
+  margin-top:0.6em;
+  background-color: $nav-background-color;
+  @include span-columns(4.5);
+  @include omega;
+  li.nav--link a{
+    padding: 0.2em;
+    color: lighten($nav-link-text-color, 15%);
+    background-color: $nav-background-color;
+    &:hover{
+      color: $nav-link-button-color;
+    }
+  }
+  width: initial;
+}
+
 .nav--ul{
   @include span-columns(12);
   @include media($tablet) { display: block;}
