@@ -1,8 +1,10 @@
-//= require_tree .
 //= require jquery/dist/jquery.min
 //= require jquery-migrate/jquery-migrate.min
 //= require nivo-slider/jquery.nivo.slider.pack
+//= require galleria/src/galleria
+//= require galleria/src/plugins/history/galleria.history
 
+// Nivo
 $(function(){
  $('#slider').nivoSlider({
   effect: 'fade',
@@ -18,3 +20,4 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 ga('create', 'UA-58107731-1', 'auto');
 ga('require', 'linkid', 'linkid.js');
 ga('send', 'pageview');
+
