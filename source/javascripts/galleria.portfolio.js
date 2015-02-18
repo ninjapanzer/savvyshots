@@ -31,5 +31,6 @@ $(function(){
       }
     });
     $(window).on('resize',center);
+    Galleria.HAS3D = false;
   });
 });
