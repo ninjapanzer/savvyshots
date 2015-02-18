@@ -6,8 +6,6 @@ title: Portfolio
   = javascript_include_tag  "galleria.portfolio"
 
 .galleria
-  = 50.times.each do
-    %img{src:"http://lorempixel.com/#{800 + (100 * (Random.rand(5) + 1))}/#{400 + (100 * (Random.rand(5) + 1))}/"}
-
-
-
+  = @gallery.each do |img|
+    %a{href:"images/gallery/#{img}"}
+      = image_tag "gallery/#{img}", resize_to: '250x', class: 'thumbnail'
