@@ -14,7 +14,9 @@
       %title= "Savvy Shots"
 
     = stylesheet_link_tag "styles"
+    = yield_content :stylesheets
     = javascript_include_tag  "all"
+    = yield_content :javascripts
 
   %body{class:page_classes}
     %header= partial "header"

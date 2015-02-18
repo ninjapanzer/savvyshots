@@ -1,10 +1,11 @@
 ---
 title: Portfolio
 ---
-:javascript
-  var _spRemote = {
-      width: 960,
-      height: 900
-  };
-  var _ce = parseInt(Math.random() * 99999999);
-  document.write('<sc' + 'ript type="text/javascript" src="//savvyshotsphotography.shootproof.com/remote/embed?ce=' + _ce + '"></sc' + 'ript>');
+
+- content_for :javascripts do
+  = javascript_include_tag  "galleria.portfolio"
+
+.galleria
+  = @gallery.each do |img|
+    %a{href:"images/gallery/#{img}"}
+      = image_tag "gallery/#{img}", resize_to: '250x', class: 'thumbnail'
