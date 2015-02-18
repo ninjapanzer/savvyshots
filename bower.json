@@ -25,6 +25,7 @@
   "dependencies": {
     "nivo-slider": "*",
     "jquery": "~2.1.1",
-    "jquery-migrate": "~1.2.1"
+    "jquery-migrate": "~1.2.1",
+    "galleria": "~1.4.2"
   }
 }

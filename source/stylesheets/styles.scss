@@ -42,6 +42,10 @@ header{
   @include outer-container;
 }
 
+.galleria{
+  height: 800px;
+}
+
 .logo{
   @include span-columns(3);
 
