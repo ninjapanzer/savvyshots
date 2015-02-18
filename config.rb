@@ -65,6 +65,10 @@ activate :automatic_clowncar,
   :namespace_directory => %w(photos),
   :filetypes => [:jpg, :jpeg, :png]
 
+activate :middleman_simple_thumbnailer
+
+@gallery = Dir.entries("./source/images/gallery/").select {|img| img.include?('.jpg')}
+
 set :haml, { :ugly => true, :format => :html5 }
 
 set :css_dir, 'stylesheets'
