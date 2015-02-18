@@ -7,8 +7,7 @@ gem "middleman", "~>3.3.7"
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.1.0"
 gem "middleman-deploy"
-gem "middleman-automatic-clowncar", github: 'ninjapanzer/middleman-automatic-clowncar'
-gem 'middleman-simple-thumbnailer'
+gem 'middleman-thumbnailer', :git => 'https://github.com/nhemsley/middleman-thumbnailer.git'
 
 gem 'middleman-search_engine_sitemap'
 

@@ -7,5 +7,5 @@ title: Portfolio
 
 .galleria
   - @gallery.each do |img|
-    %a{href:"images/gallery/#{img}"}
-      = image_tag "gallery/#{img}", resize_to: '250x', class: 'thumbnail'
+    %a{href: image_url("gallery/gallery_one/#{img}")}
+      = thumbnail "gallery/gallery_one/#{img}", :small

@@ -1,3 +1,4 @@
+require 'middleman-thumbnailer'
 ###
 # Compass
 ###
@@ -34,6 +35,12 @@ sprockets.append_path File.join root, 'bower_components'
 # Helpers
 ###
 
+helpers do
+  def image_url(source)
+    image_path(source)
+  end
+end
+
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
@@ -52,22 +59,17 @@ sprockets.append_path File.join root, 'bower_components'
 set :url_root, 'http://savvyshots.photography'
 
 activate :asset_host
-set :asset_host, 'http://localhost:4567'
 
 activate :search_engine_sitemap
 
-activate :automatic_clowncar,
-  :sizes => {
-    :small => 200,
-    :medium => 800,
-    :large => 1200
+set :asset_host, 'http://localhost:4567'
+@gallery = Dir.entries("./source/images/gallery/gallery_one/").select {|img| img.include?('.jpg')}
+
+activate :thumbnailer,
+  :dimensions => {
+    :small => '250x'
   },
-  :namespace_directory => %w(photos),
-  :filetypes => [:jpg, :jpeg, :png]
-
-activate :middleman_simple_thumbnailer
-
-@gallery = Dir.entries("./source/images/gallery/").select {|img| img.include?('.jpg')}
+  :namespace_directory => %w(gallery)
 
 set :haml, { :ugly => true, :format => :html5 }
 
@@ -79,6 +81,8 @@ set :images_dir, 'images'
 
 # Build-specific configuration
 configure :build do
+  #@gallery = Dir.entries("./build/images/gallery/").select {|img| img.include?('.jpg')}
+
   # For example, change the Compass output style for deployment
   # activate :minify_css
 
