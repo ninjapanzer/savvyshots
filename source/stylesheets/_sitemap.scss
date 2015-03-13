@@ -2,6 +2,7 @@ $sitemap-footer-color: #f7f7f7;
 $social-grid-size-container: $grid-columns/3;
 
 .sitemap--main{
+  @include outer-container;
   a{
     color: $special-text-color;
     text-decoration: none;
@@ -19,9 +20,10 @@ $social-grid-size-container: $grid-columns/3;
 
 .sitemap--links1{
   text-align: left;
-  margin-left: 1.2em;
+  //margin-left: 1.2em;
   @include span-columns($grid-columns/3);
   @include media($single-column){ @include span-columns(1) }
+  @include media($single-column) { text-align: center;}
 }
 
 .sitemap--links2{
@@ -31,8 +33,18 @@ $social-grid-size-container: $grid-columns/3;
 }
 
 .sitemap--social{
+  img{
+    max-width: 50%;
+  }
+  text-align: left;
   @include span-columns($grid-columns/3);
-  @include media($single-column){ @include span-columns(1) }
+  @include media($single-column){
+    @include span-columns(1);
+    text-align: center;
+    img{
+      max-width: 20%;
+    }
+  }
   @include omega;
 }
 
@@ -46,5 +58,6 @@ $social-grid-size-container: $grid-columns/3;
 }
 .sitemap--facebook{
   @include span-columns($social-grid-size-container/3 of $social-grid-size-container);
+  float: right;
   @include media($single-column){ @include span-columns(1) }
 }
