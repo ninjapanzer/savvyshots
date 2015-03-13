@@ -20,6 +20,10 @@ $nav-link-text-hover-color: white;
   width: 1em;
 }
 
+.social-buttons{
+  width: 1em;
+}
+
 .nav--left{
   @include media($tablet) { display: block;}
   @include media($single-column) { display: none;}
