@@ -8,7 +8,9 @@
 $(function(){
  $('#slider').nivoSlider({
   effect: 'fade',
-  pauseTime: 4000,
+  pauseTime: 2500,
+  animSpeed: 300,
+  controlNav: false,
  });
 });
 
