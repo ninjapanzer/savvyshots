@@ -48,8 +48,9 @@ $social-grid-size-container: $grid-columns/3;
   @include omega;
 }
 
-.sitemap--twitter{
+.sitemap--instagram{
   @include span-columns($social-grid-size-container/3 of $social-grid-size-container);
+  float: right;
   @include media($single-column){ @include span-columns(1) }
 }
 .sitemap--linkedin{

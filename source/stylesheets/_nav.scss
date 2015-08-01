@@ -6,10 +6,12 @@ $nav-link-text-color: #333;
 $nav-link-text-hover-color: white;
 
 .nav--main{
+  @include media($single-column) {
+    margin-top: 0.5em;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+  }
   font-size: 2em;
-  margin-top: 0.5em;
-  padding-top: 0.6em;
-  padding-bottom: 0.6em;
   line-height: 1;
   clear: both;
   @include row;
@@ -27,8 +29,8 @@ $nav-link-text-hover-color: white;
 .nav--left{
   @include media($tablet) { display: block;}
   @include media($single-column) { display: none;}
-  font-size: 1.7em;
-  margin-top:0.6em;
+  font-size: 1.3em;
+  margin-top:1.5em;
   @include span-columns(4.5);
   li.nav--link a{
     padding: 0.2em;
@@ -43,8 +45,8 @@ $nav-link-text-hover-color: white;
 .nav--right{
   @include media($tablet) { display: block;}
   @include media($single-column) { display: none;}
-  font-size: 1.7em;
-  margin-top:0.6em;
+  font-size: 1.3em;
+  margin-top:1.5em;
   background-color: $nav-background-color;
   @include span-columns(4.5);
   @include omega;
@@ -57,6 +59,25 @@ $nav-link-text-hover-color: white;
     }
   }
   width: initial;
+}
+
+.nav--call-to-action{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  .nav--link{
+    width: 6em;
+    margin: auto;
+  }
+  a{
+    width: 6em;
+    text-align: center;
+  }
+  @include span-columns(12);
+  @include media($tablet) {
+    width: initial;
+    margin-top: 1.5em;
+    margin-left: 0.5em;
+  }
 }
 
 .nav--ul{
