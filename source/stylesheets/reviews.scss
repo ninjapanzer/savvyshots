@@ -1,0 +1,19 @@
+.reviews--main{
+  @include outer-container;
+}
+
+.reviews--main strong{
+  font-weight: bold;
+}
+
+.reviews--main h3{
+  font-size: 1.5em;
+}
+
+.reviews--column{
+  @include span-columns(4);
+  @include media($single-column) { @include span-columns(1); }
+  p{
+    padding: 0.4em;
+  }
+}
