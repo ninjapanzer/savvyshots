@@ -48,6 +48,10 @@ a{
 header{
   @include outer-container;
   margin-bottom: 1em;
+  @include media($single-column) {
+    margin-bottom: initial;
+    padding-bottom: 0.1em;
+  }
 }
 
 .galleria{
@@ -60,6 +64,10 @@ header{
   min-width: 5.4em;
   font-size: $logo_font_size;
   line-height: 1;
+  @include media($single-column) {
+    margin: auto;
+    float: initial;
+  }
 }
 
 .logo a{

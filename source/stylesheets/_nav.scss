@@ -9,7 +9,7 @@ $nav-link-text-hover-color: white;
   @include media($single-column) {
     margin-top: 0.5em;
     padding-top: 0.6em;
-    padding-bottom: 0.6em;
+    padding-bottom: initial;
   }
   font-size: 2em;
   line-height: 1;
@@ -102,28 +102,33 @@ $nav-link-text-hover-color: white;
   }
 }
 
-.nav--link a{
-  @include media($single-column) {
-    @include span-columns(1);
-    @include omega(1n);
+.nav--link, .nav--link--button{
+  &.square a{
+    border-radius: initial;
   }
-  margin-right: 0.2em;
-  float:right;
-  color: $nav-link-text-color;
-  text-decoration: none;
-  text-transform: capitalize;
-  background-color: $nav-link-button-color;
-  padding:0.12em;
-  border-radius: 0.15em;
-  //box-shadow: 0em 0.2em 0.2em 0.2em $nav-link-box-shadow;
-
-  &:active, &:visited{
+  a{
+    @include media($single-column) {
+      @include span-columns(1);
+      @include omega(1n);
+    }
+    margin-right: 0.2em;
+    float:right;
     color: $nav-link-text-color;
+    text-decoration: none;
+    text-transform: capitalize;
     background-color: $nav-link-button-color;
-  }
+    padding:0.12em;
+    border-radius: 0.15em;
+    //box-shadow: 0em 0.2em 0.2em 0.2em $nav-link-box-shadow;
 
-  &:hover{
-    color: $nav-link-text-hover-color;
-    background-color: $nav-link-button-hover-color;
+    &:active, &:visited{
+      color: $nav-link-text-color;
+      background-color: $nav-link-button-color;
+    }
+
+    &:hover{
+      color: $nav-link-text-hover-color;
+      background-color: $nav-link-button-hover-color;
+    }
   }
 }
