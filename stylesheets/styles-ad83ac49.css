@@ -1,0 +1,1567 @@
+/*
+Skin Name: Nivo Slider Default Theme
+Skin URI: http://nivo.dev7studios.com
+Description: The default skin for the Nivo Slider.
+Version: 1.3
+Author: Gilbert Pellegrom
+Author URI: http://dev7studios.com
+Supports Thumbs: true
+*/
+
+
+.theme-nivodefault .nivoSlider {
+	position:relative;
+	background:#fff url(nivodefault/loading-e8c00181.gif) no-repeat 50% 50%;
+    margin-bottom:10px;
+    -webkit-box-shadow: 0px 1px 5px 0px #4a4a4a;
+    -moz-box-shadow: 0px 1px 5px 0px #4a4a4a;
+    box-shadow: 0px 1px 5px 0px #4a4a4a;
+}
+.theme-nivodefault .nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.theme-nivodefault .nivoSlider a {
+	border:0;
+	display:block;
+}
+
+.theme-nivodefault .nivo-controlNav {
+	text-align: center;
+	padding: 20px 0;
+}
+.theme-nivodefault .nivo-controlNav a {
+	display:inline-block;
+	width:22px;
+	height:22px;
+	background:url(nivodefault/bullets-ec030ad0.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin: 0 2px;
+}
+.theme-nivodefault .nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+
+.theme-nivodefault .nivo-directionNav a {
+	display:block;
+	width:30px;
+	height:30px;
+	background:url(nivodefault/arrows-43e3f776.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	opacity: 0;
+	-webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.theme-nivodefault:hover .nivo-directionNav a { opacity: 1; }
+.theme-nivodefault a.nivo-nextNav {
+	background-position:-30px 0;
+	right:15px;
+}
+.theme-nivodefault a.nivo-prevNav {
+	left:15px;
+}
+
+.theme-nivodefault .nivo-caption {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.theme-nivodefault .nivo-caption a {
+    color:#fff;
+    border-bottom:1px dotted #fff;
+}
+.theme-nivodefault .nivo-caption a:hover {
+    color:#fff;
+}
+
+.theme-nivodefault .nivo-controlNav.nivo-thumbs-enabled {
+	width: 100%;
+}
+.theme-nivodefault .nivo-controlNav.nivo-thumbs-enabled a {
+	width: auto;
+	height: auto;
+	background: none;
+	margin-bottom: 5px;
+}
+.theme-nivodefault .nivo-controlNav.nivo-thumbs-enabled img {
+	display: block;
+	width: 120px;
+	height: auto;
+}
+/*
+ * jQuery Nivo Slider v3.2
+ * http://nivo.dev7studios.com
+ *
+ * Copyright 2012, Dev7studios
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+ 
+/* The Nivo Slider styles */
+
+.nivoSlider {
+	position:relative;
+	width:100%;
+	height:auto;
+	overflow: hidden;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	max-width: none;
+}
+.nivo-main-image {
+	display: block !important;
+	position: relative !important; 
+	width: 100% !important;
+}
+
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:6;
+	display:none;
+	background:white; 
+	filter:alpha(opacity=0); 
+	opacity:0;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:5;
+	height:100%;
+	top:0;
+}
+.nivo-box {
+	display:block;
+	position:absolute;
+	z-index:5;
+	overflow:hidden;
+}
+.nivo-box img { display:block; }
+
+/* Caption styles */
+.nivo-caption {
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	background:#000;
+	color:#fff;
+	width:100%;
+	z-index:8;
+	padding: 5px 10px;
+	opacity: 0.8;
+	overflow: hidden;
+	display: none;
+	-moz-opacity: 0.8;
+	filter:alpha(opacity=8);
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+.nivo-caption p {
+	padding:5px;
+	margin:0;
+}
+.nivo-caption a {
+	display:inline !important;
+}
+.nivo-html-caption {
+    display:none;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position:absolute;
+	top:45%;
+	z-index:9;
+	cursor:pointer;
+}
+.nivo-prevNav {
+	left:0px;
+}
+.nivo-nextNav {
+	right:0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav {
+	text-align:center;
+	padding: 15px 0;
+}
+.nivo-controlNav a {
+	cursor:pointer;
+}
+.nivo-controlNav a.active {
+	font-weight:bold;
+}
+/*! normalize.css v2.0.1 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/*
+ * Corrects `block` display not defined in IE 8/9.
+ */
+/* line 12, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block; }
+
+/*
+ * Corrects `inline-block` display not defined in IE 8/9.
+ */
+/* line 30, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+audio,
+canvas,
+video {
+  display: inline-block; }
+
+/*
+ * Prevents modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 41, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/*
+ * Addresses styling for `hidden` attribute not present in IE 8/9.
+ */
+/* line 50, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+[hidden] {
+  display: none; }
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/*
+ * 1. Sets default font family to sans-serif.
+ * 2. Prevents iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 64, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */ }
+
+/*
+ * Removes default margin.
+ */
+/* line 74, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+body {
+  margin: 0; }
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/*
+ * Addresses `outline` inconsistency between Chrome and other browsers.
+ */
+/* line 86, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+a:focus {
+  outline: thin dotted; }
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers.
+ */
+/* line 94, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+a:active,
+a:hover {
+  outline: 0; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/*
+ * Addresses `h1` font sizes within `section` and `article` in Firefox 4+,
+ * Safari 5, and Chrome.
+ */
+/* line 108, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+h1 {
+  font-size: 2em; }
+
+/*
+ * Addresses styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+/* line 116, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/*
+ * Addresses style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 124, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+b,
+strong {
+  font-weight: bold; }
+
+/*
+ * Addresses styling not present in Safari 5 and Chrome.
+ */
+/* line 133, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+dfn {
+  font-style: italic; }
+
+/*
+ * Addresses styling not present in IE 8/9.
+ */
+/* line 141, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/*
+ * Corrects font family set oddly in Safari 5 and Chrome.
+ */
+/* line 151, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+/*
+ * Improves readability of pre-formatted text in all browsers.
+ */
+/* line 163, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+/*
+ * Sets consistent quote types.
+ */
+/* line 173, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/*
+ * Addresses inconsistent and variable font size in all browsers.
+ */
+/* line 181, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+small {
+  font-size: 80%; }
+
+/*
+ * Prevents `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 189, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+/* line 197, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+sup {
+  top: -0.5em; }
+
+/* line 201, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+sub {
+  bottom: -0.25em; }
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/*
+ * Removes border when inside `a` element in IE 8/9.
+ */
+/* line 213, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+img {
+  border: 0; }
+
+/*
+ * Corrects overflow displayed oddly in IE 9.
+ */
+/* line 221, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/*
+ * Addresses margin not present in IE 8/9 and Safari 5.
+ */
+/* line 233, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+figure {
+  margin: 0; }
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/*
+ * Define consistent border, margin, and padding.
+ */
+/* line 245, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/*
+ * 1. Corrects color not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/* line 256, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/*
+ * 1. Corrects font family not being inherited in all browsers.
+ * 2. Corrects font size not being inherited in all browsers.
+ * 3. Addresses margins set differently in Firefox 4+, Safari 5, and Chrome
+ */
+/* line 267, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/*
+ * Addresses Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 281, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+button,
+input {
+  line-height: normal; }
+
+/*
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Corrects inability to style clickable `input` types in iOS.
+ * 3. Improves usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 294, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/*
+ * Re-set default cursor for disabled elements.
+ */
+/* line 306, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+button[disabled],
+input[disabled] {
+  cursor: default; }
+
+/*
+ * 1. Addresses box sizing set to `content-box` in IE 8/9.
+ * 2. Removes excess padding in IE 8/9.
+ */
+/* line 316, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/*
+ * 1. Addresses `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Addresses `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 328, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box; }
+
+/*
+ * Removes inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+/* line 340, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/*
+ * Removes inner padding and border in Firefox 4+.
+ */
+/* line 349, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/*
+ * 1. Removes default vertical scrollbar in IE 8/9.
+ * 2. Improves readability and alignment in all browsers.
+ */
+/* line 360, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */ }
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/*
+ * Remove most spacing between table cells.
+ */
+/* line 373, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 7, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/reset.scss */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+/* line 17, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/reset.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+/* line 20, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/reset.scss */
+body {
+  line-height: 1; }
+
+/* line 23, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/reset.scss */
+ol, ul {
+  list-style: none; }
+
+/* line 26, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/reset.scss */
+blockquote, q {
+  quotes: none; }
+
+/* line 30, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/reset.scss */
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+/* line 35, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/reset.scss */
+q:before, q:after {
+  content: '';
+  content: none; }
+
+/* line 39, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Neat 1.7.0
+ * http://neat.bourbon.io
+ * Copyright 2012-2014 thoughtbot, inc.
+ * MIT License */
+/* line 2, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_box-sizing.scss */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* line 7, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_box-sizing.scss */
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+/* line 1, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_buttons.scss */
+input[type="button"], input[type="reset"], input[type="submit"],
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  background-color: #477dca;
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap; }
+  /* line 21, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_buttons.scss */
+  input[type="button"]:hover, input[type="button"]:focus, input[type="reset"]:hover, input[type="reset"]:focus, input[type="submit"]:hover, input[type="submit"]:focus,
+  button:hover,
+  button:focus {
+    background-color: #2c5999;
+    color: #fff; }
+  /* line 27, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_buttons.scss */
+  input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled,
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5; }
+
+/* line 1, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+fieldset {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  margin: 0 0 0.75em;
+  padding: 1.5em; }
+
+/* line 8, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+input,
+label,
+select {
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1em; }
+
+/* line 16, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+label {
+  font-weight: 600;
+  margin-bottom: 0.375em; }
+  /* line 20, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+  label.required::after {
+    content: "*"; }
+  /* line 24, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+  label abbr {
+    display: none; }
+
+/* line 29, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"],
+select[multiple=multiple],
+textarea {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1em;
+  margin-bottom: 0.75em;
+  padding: 0.5em;
+  transition: border-color;
+  width: 100%; }
+  /* line 44, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+  input[type="email"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="url"]:hover, input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover,
+  select[multiple=multiple]:hover,
+  textarea:hover {
+    border-color: #c4c4c4; }
+  /* line 48, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+  input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus,
+  select[multiple=multiple]:focus,
+  textarea:focus {
+    border-color: #477dca;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(55, 112, 192, 0.7);
+    outline: none; }
+
+/* line 55, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+textarea {
+  resize: vertical; }
+
+/* line 59, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+input[type="search"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none; }
+
+/* line 63, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  margin-right: 0.375em; }
+
+/* line 69, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+input[type="file"] {
+  padding-bottom: 0.75em;
+  width: 100%; }
+
+/* line 74, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_forms.scss */
+select {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+  width: auto; }
+
+/* line 1, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_lists.scss */
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+/* line 20, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_lists.scss */
+dl {
+  margin-bottom: 0.75em; }
+  /* line 23, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_lists.scss */
+  dl dt {
+    font-weight: bold;
+    margin-top: 0.75em; }
+  /* line 28, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_lists.scss */
+  dl dd {
+    margin: 0; }
+
+/* line 1, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_tables.scss */
+table {
+  -webkit-font-feature-settings: "kern", "liga", "tnum";
+  -moz-font-feature-settings: "kern", "liga", "tnum";
+  -ms-font-feature-settings: "kern", "liga", "tnum";
+  font-feature-settings: "kern", "liga", "tnum";
+  border-collapse: collapse;
+  margin: 0.75em 0;
+  table-layout: fixed;
+  width: 100%; }
+
+/* line 9, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_tables.scss */
+th {
+  border-bottom: 1px solid #b7b7b7;
+  font-weight: 600;
+  padding: 0.75em 0;
+  text-align: left; }
+
+/* line 16, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_tables.scss */
+td {
+  border-bottom: 1px solid #ddd;
+  padding: 0.75em 0; }
+
+/* line 21, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_tables.scss */
+tr,
+td,
+th {
+  vertical-align: middle; }
+
+/* line 1, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_typography.scss */
+body {
+  -webkit-font-feature-settings: "kern", "liga", "pnum";
+  -moz-font-feature-settings: "kern", "liga", "pnum";
+  -ms-font-feature-settings: "kern", "liga", "pnum";
+  font-feature-settings: "kern", "liga", "pnum";
+  -webkit-font-smoothing: antialiased;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.5; }
+
+/* line 10, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_typography.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.2;
+  margin: 0 0 0.75em; }
+
+/* line 22, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_typography.scss */
+p {
+  margin: 0 0 0.75em; }
+
+/* line 26, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_typography.scss */
+a {
+  color: #477dca;
+  text-decoration: none;
+  transition: color 0.1s linear; }
+  /* line 31, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_typography.scss */
+  a:active, a:focus, a:hover {
+    color: #2c5999; }
+  /* line 37, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_typography.scss */
+  a:active, a:focus {
+    outline: none; }
+
+/* line 43, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_typography.scss */
+hr {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 1.5em 0; }
+
+/* line 51, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/base/_typography.scss */
+img,
+picture {
+  margin: 0;
+  max-width: 100%; }
+
+@font-face {
+  font-family: 'beast_of_avalonregular';
+  src: url("./beast_of_avalon/beast_of_avalon-webfont.eot");
+  src: url("./beast_of_avalon/beast_of_avalon-webfont.eot?#iefix") format("embedded-opentype"), url("./beast_of_avalon/beast_of_avalon-webfont.woff2") format("woff2"), url("./beast_of_avalon/beast_of_avalon-webfont.woff") format("woff"), url("./beast_of_avalon/beast_of_avalon-webfont.ttf") format("truetype"), url("./beast_of_avalon/beast_of_avalon-webfont.svg#beast_of_avalonregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/*
+
+
+*/
+/* line 8, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+.nav--main {
+  font-size: 2em;
+  line-height: 1;
+  clear: both;
+  display: block;
+  background-color: #f7f7f7; }
+  @media screen and (max-width: 768px) {
+    /* line 8, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+    .nav--main {
+      margin-top: 0.5em;
+      padding-top: 0.6em;
+      padding-bottom: initial; } }
+  /* line 15, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/bourbon/addons/_clearfix.scss */
+  .nav--main:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 21, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+.home-button {
+  width: 1em; }
+
+/* line 25, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+.social-buttons {
+  width: 1em; }
+
+/* line 29, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+.nav--left {
+  font-size: 1.3em;
+  margin-top: 1.5em;
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 36.17021%; }
+  @media screen and (max-width: 768px) {
+    /* line 29, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+    .nav--left {
+      display: block; } }
+  @media screen and (max-width: 768px) {
+    /* line 29, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+    .nav--left {
+      display: none; } }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .nav--left:last-child {
+    margin-right: 0; }
+  /* line 35, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+  .nav--left li.nav--link a {
+    padding: 0.2em;
+    color: #595959;
+    background-color: #f7f7f7; }
+    /* line 39, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+    .nav--left li.nav--link a:hover {
+      color: #a6d4ce; }
+
+/* line 45, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+.nav--right {
+  font-size: 1.3em;
+  margin-top: 1.5em;
+  background-color: #f7f7f7;
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 36.17021%;
+  margin-right: 0;
+  width: initial; }
+  @media screen and (max-width: 768px) {
+    /* line 45, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+    .nav--right {
+      display: block; } }
+  @media screen and (max-width: 768px) {
+    /* line 45, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+    .nav--right {
+      display: none; } }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .nav--right:last-child {
+    margin-right: 0; }
+  /* line 53, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+  .nav--right li.nav--link a {
+    padding: 0.2em;
+    color: #595959;
+    background-color: #f7f7f7; }
+    /* line 57, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+    .nav--right li.nav--link a:hover {
+      color: #a6d4ce; }
+
+/* line 64, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+.nav--call-to-action {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 100%; }
+  /* line 67, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+  .nav--call-to-action .nav--link {
+    width: 6em;
+    margin: auto; }
+  /* line 71, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+  .nav--call-to-action a {
+    width: 6em;
+    text-align: center; }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .nav--call-to-action:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    /* line 64, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+    .nav--call-to-action {
+      width: initial;
+      margin-top: 1.5em;
+      margin-left: 0.5em; } }
+
+/* line 83, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+.nav--ul {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 100%;
+  margin-right: 0; }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .nav--ul:last-child {
+    margin-right: 0; }
+  /* line 86, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+  .nav--ul li {
+    display: inline; }
+
+/* line 91, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+.nav--ul-mobile {
+  display: none; }
+  @media screen and (max-width: 768px) {
+    /* line 91, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+    .nav--ul-mobile {
+      float: left;
+      display: block;
+      margin-right: 6.66667%;
+      width: 100%;
+      display: none; }
+      /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+      .nav--ul-mobile:last-child {
+        margin-right: 0; }
+      /* line 82, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_omega.scss */
+      .nav--ul-mobile:nth-child(4n) {
+        margin-right: 0; }
+      /* line 87, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_omega.scss */
+      .nav--ul-mobile:nth-child(4n+1) {
+        clear: left; } }
+  @media screen and (max-width: 768px) {
+    /* line 91, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+    .nav--ul-mobile {
+      display: block;
+      float: left;
+      display: block;
+      margin-right: 33.33333%;
+      width: 100%; }
+      /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+      .nav--ul-mobile:last-child {
+        margin-right: 0; }
+      /* line 82, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_omega.scss */
+      .nav--ul-mobile:nth-child(1n) {
+        margin-right: 0; }
+      /* line 87, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_omega.scss */
+      .nav--ul-mobile:nth-child(1n+1) {
+        clear: left; } }
+
+/* line 106, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+.nav--link.square a, .nav--link--button.square a {
+  border-radius: initial; }
+/* line 109, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+.nav--link a, .nav--link--button a {
+  margin-right: 0.2em;
+  float: right;
+  color: #333;
+  text-decoration: none;
+  text-transform: capitalize;
+  background-color: #a6d4ce;
+  padding: 0.12em;
+  border-radius: 0.15em; }
+  @media screen and (max-width: 768px) {
+    /* line 109, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+    .nav--link a, .nav--link--button a {
+      float: left;
+      display: block;
+      margin-right: 33.33333%;
+      width: 100%; }
+      /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+      .nav--link a:last-child, .nav--link--button a:last-child {
+        margin-right: 0; }
+      /* line 82, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_omega.scss */
+      .nav--link a:nth-child(1n), .nav--link--button a:nth-child(1n) {
+        margin-right: 0; }
+      /* line 87, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_omega.scss */
+      .nav--link a:nth-child(1n+1), .nav--link--button a:nth-child(1n+1) {
+        clear: left; } }
+  /* line 124, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+  .nav--link a:active, .nav--link a:visited, .nav--link--button a:active, .nav--link--button a:visited {
+    color: #333;
+    background-color: #a6d4ce; }
+  /* line 129, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_nav.scss */
+  .nav--link a:hover, .nav--link--button a:hover {
+    color: white;
+    background-color: #2f92a1; }
+
+/* line 1, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_pricing.scss */
+div.pricing {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%; }
+  /* line 15, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/bourbon/addons/_clearfix.scss */
+  div.pricing:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 6, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_pricing.scss */
+.descriptions, .packages {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 82.97872%;
+  float: initial;
+  margin: auto; }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .descriptions:last-child, .packages:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    /* line 6, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_pricing.scss */
+    .descriptions, .packages {
+      float: left;
+      display: block;
+      margin-right: 33.33333%;
+      width: 100%; }
+      /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+      .descriptions:last-child, .packages:last-child {
+        margin-right: 0; } }
+
+/* line 13, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_pricing.scss */
+.packages {
+  background-color: #e4f2f0; }
+  /* line 16, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_pricing.scss */
+  .packages ul {
+    list-style-type: none;
+    padding-left: 1em; }
+    /* line 20, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_pricing.scss */
+    .packages ul li::before {
+      content: "- "; }
+
+/* line 27, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_pricing.scss */
+.descriptions:last-child, .packages:last-child, .packages:last-child {
+  margin-right: inherit; }
+
+/* line 31, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_pricing.scss */
+.packageTitle, .descriptionTitle {
+  text-align: center;
+  margin: 0.3em;
+  color: #49988d;
+  font-size: 1.45rem;
+  padding-top: 5px; }
+
+/* line 39, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_pricing.scss */
+.package, .description {
+  border: 1.5px solid #a6d4ce;
+  background-color: white;
+  font-size: 1.1em;
+  display: block;
+  padding-bottom: 0.5em; }
+  /* line 15, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/bourbon/addons/_clearfix.scss */
+  .package:after, .description:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 47, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_pricing.scss */
+.description {
+  margin-top: 50%;
+  margin-bottom: 50%; }
+
+/* line 1, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+div.about {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  /* line 15, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/bourbon/addons/_clearfix.scss */
+  div.about:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 5, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+.about > .about--content {
+  border: 1.5px solid #a6d4ce;
+  background-color: white;
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 82.97872%;
+  margin-left: 8.51064%; }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .about > .about--content:last-child {
+    margin-right: 0; }
+  /* line 82, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_omega.scss */
+  .about > .about--content:nth-child(1n) {
+    margin-right: 0; }
+  /* line 87, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_omega.scss */
+  .about > .about--content:nth-child(1n+1) {
+    clear: left; }
+  @media screen and (max-width: 768px) {
+    /* line 5, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+    .about > .about--content {
+      float: left;
+      display: block;
+      margin-right: 33.33333%;
+      width: 100%;
+      margin-left: 0%; }
+      /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+      .about > .about--content:last-child {
+        margin-right: 0; } }
+
+/* line 17, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+.about--content section {
+  display: block;
+  font-size: 1.1em; }
+  /* line 15, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/bourbon/addons/_clearfix.scss */
+  .about--content section:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 22, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+section > .about--photo {
+  border-top: 1.5px solid #a6d4ce;
+  border-bottom: 1.5px solid #a6d4ce; }
+
+/* line 27, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+.about--photo {
+  display: block; }
+  /* line 15, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/bourbon/addons/_clearfix.scss */
+  .about--photo:after {
+    content: "";
+    display: table;
+    clear: both; }
+  /* line 29, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+  .about--photo .about--clowncar {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 50%;
+    max-width: 50%;
+    display: block;
+    margin: auto; }
+    @media screen and (max-width: 768px) {
+      /* line 29, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+      .about--photo .about--clowncar {
+        width: 100%;
+        max-width: 100%; } }
+  /* line 41, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+  .about--photo div {
+    display: block;
+    margin: auto; }
+
+/* line 47, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+.about--content > section > h3 {
+  margin: 0.3em;
+  color: #49988d;
+  font-size: 1.45rem;
+  padding-top: 5px; }
+
+/* line 54, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+.about--content > section > p {
+  line-height: 1.1;
+  padding: 0.5em;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 0.2em; }
+
+/* line 62, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+.about--content ul {
+  line-height: 1.1;
+  list-style-type: none;
+  padding-left: 2.5em; }
+  /* line 67, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_about.scss */
+  .about--content ul li::before {
+    content: "- "; }
+
+/* line 4, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+.sitemap--main {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 1em 0 1em;
+  background-color: #f7f7f7; }
+  /* line 15, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/bourbon/addons/_clearfix.scss */
+  .sitemap--main:after {
+    content: "";
+    display: table;
+    clear: both; }
+  /* line 6, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+  .sitemap--main a {
+    color: #a6d4ce;
+    text-decoration: none; }
+    /* line 9, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+    .sitemap--main a:active, .sitemap--main a:visited {
+      color: #a6d4ce; }
+    /* line 12, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+    .sitemap--main a:hover {
+      color: #333; }
+  /* line 15, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/bourbon/addons/_clearfix.scss */
+  .sitemap--main:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 21, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+.sitemap--links1 {
+  text-align: left;
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 31.91489%; }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .sitemap--links1:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    /* line 21, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+    .sitemap--links1 {
+      float: left;
+      display: block;
+      margin-right: 33.33333%;
+      width: 100%; }
+      /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+      .sitemap--links1:last-child {
+        margin-right: 0; } }
+  @media screen and (max-width: 768px) {
+    /* line 21, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+    .sitemap--links1 {
+      text-align: center; } }
+
+/* line 29, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+.sitemap--links2 {
+  text-align: center;
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 31.91489%; }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .sitemap--links2:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    /* line 29, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+    .sitemap--links2 {
+      float: left;
+      display: block;
+      margin-right: 33.33333%;
+      width: 100%; }
+      /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+      .sitemap--links2:last-child {
+        margin-right: 0; } }
+
+/* line 35, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+.sitemap--social {
+  text-align: left;
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 31.91489%;
+  margin-right: 0; }
+  /* line 36, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+  .sitemap--social img {
+    max-width: 50%; }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .sitemap--social:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    /* line 35, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+    .sitemap--social {
+      float: left;
+      display: block;
+      margin-right: 33.33333%;
+      width: 100%;
+      text-align: center; }
+      /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+      .sitemap--social:last-child {
+        margin-right: 0; }
+      /* line 44, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+      .sitemap--social img {
+        max-width: 20%; } }
+
+/* line 51, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+.sitemap--instagram {
+  float: left;
+  display: block;
+  margin-right: 6.66667%;
+  width: 28.88889%;
+  float: right; }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .sitemap--instagram:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    /* line 51, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+    .sitemap--instagram {
+      float: left;
+      display: block;
+      margin-right: 33.33333%;
+      width: 100%; }
+      /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+      .sitemap--instagram:last-child {
+        margin-right: 0; } }
+
+/* line 56, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+.sitemap--linkedin {
+  float: left;
+  display: block;
+  margin-right: 6.66667%;
+  width: 28.88889%; }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .sitemap--linkedin:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    /* line 56, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+    .sitemap--linkedin {
+      float: left;
+      display: block;
+      margin-right: 33.33333%;
+      width: 100%; }
+      /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+      .sitemap--linkedin:last-child {
+        margin-right: 0; } }
+
+/* line 60, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+.sitemap--facebook {
+  float: left;
+  display: block;
+  margin-right: 6.66667%;
+  width: 28.88889%;
+  float: right; }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .sitemap--facebook:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    /* line 60, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_sitemap.scss */
+    .sitemap--facebook {
+      float: left;
+      display: block;
+      margin-right: 33.33333%;
+      width: 100%; }
+      /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+      .sitemap--facebook:last-child {
+        margin-right: 0; } }
+
+/* line 1, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_reviews.scss */
+.reviews--main {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto; }
+  /* line 15, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/bourbon/addons/_clearfix.scss */
+  .reviews--main:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 5, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_reviews.scss */
+.reviews--main strong {
+  font-weight: bold; }
+
+/* line 9, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_reviews.scss */
+.reviews--main h3 {
+  font-size: 1.5em; }
+
+/* line 13, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_reviews.scss */
+.reviews--column {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 31.91489%; }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .reviews--column:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    /* line 13, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_reviews.scss */
+    .reviews--column {
+      float: left;
+      display: block;
+      margin-right: 33.33333%;
+      width: 100%; }
+      /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+      .reviews--column:last-child {
+        margin-right: 0; } }
+  /* line 16, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/_reviews.scss */
+  .reviews--column p {
+    padding: 0.4em; }
+
+/* line 18, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+div, nav, section {
+  border-radius: 0.1em; }
+
+/* line 22, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+body {
+  max-width: none; }
+
+/* line 26, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+div.index {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: none; }
+  /* line 15, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/bourbon/addons/_clearfix.scss */
+  div.index:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 31, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+div.portfolio {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: none;
+  margin-left: 0.5em; }
+  /* line 15, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/bourbon/addons/_clearfix.scss */
+  div.portfolio:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 37, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+a {
+  color: #2f92a1;
+  text-decoration: none; }
+  /* line 40, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+  a:active, a:visited {
+    color: #2f92a1; }
+  /* line 43, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+  a:hover {
+    color: #a6d4ce; }
+
+/* line 48, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+header {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em; }
+  /* line 15, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/bourbon/addons/_clearfix.scss */
+  header:after {
+    content: "";
+    display: table;
+    clear: both; }
+  @media screen and (max-width: 768px) {
+    /* line 48, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+    header {
+      margin-bottom: initial;
+      padding-bottom: 0.1em; } }
+
+/* line 57, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+.galleria {
+  height: 800px; }
+
+/* line 61, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+.logo {
+  float: left;
+  display: block;
+  margin-right: 2.12766%;
+  width: 23.40426%;
+  min-width: 5.4em;
+  font-size: 2.5em;
+  line-height: 1; }
+  /* line 85, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/neat/grid/_span-columns.scss */
+  .logo:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 768px) {
+    /* line 61, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+    .logo {
+      margin: auto;
+      float: initial; } }
+
+/* line 73, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+.logo a {
+  color: #333;
+  text-decoration: none; }
+  /* line 77, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+  .logo a:active, .logo a:visited {
+    color: #333; }
+  /* line 81, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+  .logo a:hover {
+    color: #333; }
+
+/* line 86, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+.headline {
+  font-family: beast_of_avalonregular;
+  font-size: 1em;
+  margin-bottom: 0;
+  line-height: 1;
+  text-align: center;
+  padding-top: 0.4em; }
+
+/* line 94, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+.tagline {
+  font-family: sans-serif;
+  font-size: 0.3em;
+  text-align: center;
+  margin-right: 0; }
+
+/* line 101, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+body {
+  background-color: #f7f7f7;
+  /*background: #d4d4d4 url("../images/background-29e26e74.png");*/
+  font-family: sans-serif; }
+
+/* line 107, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+.contact {
+  text-align: center; }
+  @media screen and (max-width: 768px) {
+    /* line 107, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+    .contact {
+      text-align: initial; } }
+
+/* line 114, /Users/samuraipanzer/personalrepos/savvyshots/source/stylesheets/styles.scss */
+p.contactLink {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.2em; }
