@@ -1,7 +1,7 @@
 # Use a simple shell loop, to process each of the images.
 mkdir web
 find * -prune -name '*.jpg' \
-       -exec  convert -units PixelsPerInch '{}' -resample 72 -gravity center -crop 1642x750+0+0 +repage web/web_'{}' \;
+       -exec  convert -units PixelsPerInch '{}' -resample 72 web/web_'{}' \;
 
 # Use find to substitute filenames into a 'convert' command.
 # This also provides the ability to recurse though directories by removing
